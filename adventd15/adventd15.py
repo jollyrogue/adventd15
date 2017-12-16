@@ -4,7 +4,6 @@ Advent of Code: 2017, Day 15
 
 Serial implementation
 '''
-import random
 
 
 def generator_a(start):
@@ -16,26 +15,28 @@ def generator_b(start):
 
 
 def judge(gen_a_num, gen_b_num):
-    return 0
+    if int(bin(gen_a_num)[-16:]) == int(bin(gen_b_num)[-16:]):
+        return 1
+    else:
+        return 0
 
 
 def main():
     '''
     Main function. This is where all the magic happens.
     '''
-    random_range = 40000
-    judge_range = 40000000
     match_total = 0
-    #generator_a_start = random.randrange(random_range)
-    #generator_b_start = random.randrange(random_range)
     generator_a_num = 65
     generator_b_num = 8921
 
-    for i in range(judge_range):
+    for i in range(40000000):
         generator_a_num = generator_a(generator_a_num)
         generator_b_num = generator_b(generator_b_num)
+
         if judge(generator_a_num, generator_b_num) == 1:
             match_total += 1
+
+    print("Match Total: {}".format(match_total))
 
     return 0
 
