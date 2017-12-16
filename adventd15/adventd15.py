@@ -6,16 +6,20 @@ Serial implementation
 '''
 
 
+def generator_calc(start, factor):
+    return (start * factor) % 2147483647
+
+
 def generator_a(start):
-    return (start * 16807) % 2147483647
+    return generator_calc(start, 16807)
 
 
 def generator_b(start):
-    return (start * 48271) % 2147483647
+    return generator_calc(start, 48271)
 
 
-def judge(gen_a_num, gen_b_num):
-    if int(bin(gen_a_num)[-16:]) == int(bin(gen_b_num)[-16:]):
+def judge(mask, gen_a_num, gen_b_num):
+    if (gen_a_num & mask) == (gen_b_num & mask):
         return 1
     else:
         return 0
@@ -26,6 +30,7 @@ def main():
     Main function. This is where all the magic happens.
     '''
     match_total = 0
+    mask = int('1111111111111111', 2)
     generator_a_num = 65
     generator_b_num = 8921
 
@@ -33,7 +38,7 @@ def main():
         generator_a_num = generator_a(generator_a_num)
         generator_b_num = generator_b(generator_b_num)
 
-        if judge(generator_a_num, generator_b_num) == 1:
+        if judge(mask, generator_a_num, generator_b_num) == 1:
             match_total += 1
 
     print("Match Total: {}".format(match_total))
