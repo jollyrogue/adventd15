@@ -4,6 +4,7 @@ Advent of Code: 2017, Day 15
 
 Serial implementation
 '''
+import cython
 
 
 def generator_calc(start, factor):
@@ -20,9 +21,9 @@ def generator_b(start):
 
 def judge(mask, gen_a_num, gen_b_num):
     if (gen_a_num & mask) == (gen_b_num & mask):
-        return 1
+        return True
     else:
-        return 0
+        return False
 
 
 def main():
@@ -38,7 +39,7 @@ def main():
         generator_a_num = generator_a(generator_a_num)
         generator_b_num = generator_b(generator_b_num)
 
-        if judge(mask, generator_a_num, generator_b_num) == 1:
+        if judge(mask, generator_a_num, generator_b_num):
             match_total += 1
 
     print("Match Total: {}".format(match_total))
