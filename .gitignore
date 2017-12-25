@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Ignore C code since it's created by cython.
+*.c
+
 # C extensions
 *.so
 
