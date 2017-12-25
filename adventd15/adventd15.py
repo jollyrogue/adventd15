@@ -4,7 +4,6 @@ Advent of Code: 2017, Day 15
 
 Serial implementation
 '''
-import cython
 
 
 def generator_calc(start, factor):
