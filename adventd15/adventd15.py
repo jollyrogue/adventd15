@@ -4,18 +4,15 @@ Advent of Code: 2017, Day 15
 
 Serial implementation
 '''
-
-
-def generator_calc(start, factor):
-    return (start * factor) % 2147483647
+from libadventd15c import generator_calc_c
 
 
 def generator_a(start):
-    return generator_calc(start, 16807)
+    return generator_calc_c(start, 16807)
 
 
 def generator_b(start):
-    return generator_calc(start, 48271)
+    return generator_calc_c(start, 48271)
 
 
 def judge(mask, gen_a_num, gen_b_num):
