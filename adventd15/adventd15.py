@@ -4,15 +4,8 @@ Advent of Code: 2017, Day 15
 
 Serial implementation
 '''
-from libadventd15c import generator_calc_c
-
-
-def generator_a(start):
-    return generator_calc_c(start, 16807)
-
-
-def generator_b(start):
-    return generator_calc_c(start, 48271)
+from libadventd15c import generator_a
+from libadventd15c import generator_b
 
 
 def judge(mask, gen_a_num, gen_b_num):
