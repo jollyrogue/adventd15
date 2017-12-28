@@ -6,13 +6,7 @@ Serial implementation
 '''
 from libadventd15c import generator_a
 from libadventd15c import generator_b
-
-
-def judge(mask, gen_a_num, gen_b_num):
-    if (gen_a_num & mask) == (gen_b_num & mask):
-        return True
-    else:
-        return False
+from libadventd15c import judge
 
 
 def main():
@@ -20,7 +14,7 @@ def main():
     Main function. This is where all the magic happens.
     '''
     match_total = 0
-    mask = int('1111111111111111', 2)
+    mask = 65535
     generator_a_num = 65
     generator_b_num = 8921
 

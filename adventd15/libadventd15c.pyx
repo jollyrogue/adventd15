@@ -8,3 +8,10 @@ def generator_a(int start):
 
 def generator_b(int start):
     return generator_calc(start, 48271)
+
+
+def judge(int mask, int gen_a_num, int gen_b_num):
+    if (gen_a_num & mask) == (gen_b_num & mask):
+        return True
+    else:
+        return False
